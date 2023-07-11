@@ -3,10 +3,7 @@ package com.example.ECommerce.entity;
 
 import com.example.ECommerce.enums.CardType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
@@ -17,6 +14,7 @@ import java.util.Date;
 @Entity
 @Table(name = "card")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Card {
 
     @Id
@@ -25,6 +23,9 @@ public class Card {
 
     @Enumerated(EnumType.STRING)
     CardType cardType;
+
+    @Column(unique = true)
+    String cardNo;
 
     int cvv;
 

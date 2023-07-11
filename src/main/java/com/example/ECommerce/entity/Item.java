@@ -2,10 +2,7 @@ package com.example.ECommerce.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Data
@@ -14,6 +11,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Table(name = "item")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Item {
 
     @Id

@@ -2,10 +2,7 @@ package com.example.ECommerce.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -17,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "customer")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Customer {
 
     @Id
@@ -30,6 +28,7 @@ public class Customer {
     @Column(unique = true)
     String email;
 
+    @Column(unique = true)
     String mobNo;
 
     String address;
@@ -44,6 +43,7 @@ public class Customer {
     List<Card> cardList = new ArrayList<>();
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    @JoinColumn
     Cart cart;
 
 }

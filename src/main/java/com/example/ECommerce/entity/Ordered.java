@@ -3,10 +3,7 @@ package com.example.ECommerce.entity;
 
 import com.example.ECommerce.enums.CardType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -20,6 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Builder
 public class Ordered {
 
     @Id
@@ -28,6 +26,8 @@ public class Ordered {
 
     @Enumerated(EnumType.STRING)
     CardType cardType;
+
+    String orderNO;
 
     int totalPrice;
 
